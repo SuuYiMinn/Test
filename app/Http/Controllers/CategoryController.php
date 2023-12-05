@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class ItemController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $items = new Item();
-        $itemList = $items->getAll();
-        return Inertia::render("Items/Items", [
-            "items" => $itemList
+        $category = new Category();
+        $categoryList = $category->getAll();
+        return Inertia::render("Items/category",[
+            "category" => $categoryList
         ]);
-        
     }
 
     /**
@@ -26,7 +25,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        return Inertia::render("Items/addItems");
+        return Inertia::render("Items/addCategory");
     }
 
     /**

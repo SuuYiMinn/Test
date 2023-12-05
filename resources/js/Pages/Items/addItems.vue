@@ -10,48 +10,12 @@ app.component("QuillEditor", QuillEditor);
 
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import "@vueup/vue-quill/dist/vue-quill.bubble.css";
+import SideBar from "@/Components/SideBar.vue";
 </script>
 
 <template>
-    <!-- <AppLayout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <Welcome />
-                </div>
-            </div>
-        </div>
-    </AppLayout> -->
-
-    <button
-        data-drawer-target="logo-sidebar"
-        data-drawer-toggle="logo-sidebar"
-        aria-controls="logo-sidebar"
-        type="button"
-        class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-    >
-        <span class="sr-only">Open sidebar</span>
-        <svg
-            class="w-6 h-6"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                clip-rule="evenodd"
-                fill-rule="evenodd"
-                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-            ></path>
-        </svg>
-    </button>
-
+    
+<SideBar />
     <aside
         id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
@@ -180,15 +144,15 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
         <!-- end of top bar -->
         <!-- items list title -->
         <div class="pt-3">
-            Categories > <span class="text-blue-500">Add Categories</span>
+            Items List > <span class="text-blue-500">Add Items</span>
         </div>
-        <div class="bg-blue-50 p-3 mt-4 rounded-md text-xl">Add Categories</div>
+        <div class="bg-blue-50 p-3 mt-4 rounded-md text-xl">Add Items</div>
         <div class="flex flex-row justify-between mt-5 w-full">
             <div class="w-1/2">
-                
+                <div>Item Information</div>
                 <div class="mt-5">
                     <label for="" class="block"
-                        >Category
+                        >Item Name
                         <span style="color: #ff0000">*</span>
                     </label>
                     <input
@@ -199,7 +163,62 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
                 </div>
                 <div class="mt-5">
                     <label for="" class="block"
-                        >Category Photo<span style="color: #ff0000">*</span></label
+                        >Select Category<span style="color: #ff0000"
+                            >*</span
+                        ></label
+                    >
+                    <select
+                        name=""
+                        id=""
+                        class="mt-3 text-gray-600 border-gray-300 rounded-md w-1/2"
+                    >
+                        <option value="">Select Category</option>
+                    </select>
+                </div>
+                <div class="mt-5">
+                    <label for="" class="block"
+                        >Price<span style="color: #ff0000">*</span></label
+                    >
+                    <input
+                        type="number"
+                        placeholder="Enter Price"
+                        class="border-gray-300 rounded-md mt-3 w-1/2"
+                    />
+                </div>
+                <div class="mt-5">
+                    <label for="" class="block"
+                        >Description<span style="color: #ff0000">*</span></label
+                    >
+                    <QuillEditor placeholder="Enter Description" theme="snow" />
+                </div>
+                <div class="mt-5">
+                    <label for="" class="block">Select Item Condition</label>
+                    <select
+                        name=""
+                        id=""
+                        class="mt-3 text-gray-600 border-gray-300 rounded-md w-1/2"
+                    >
+                        <option value="">Select Item Condition</option>
+                    </select>
+                </div>
+                <div class="mt-5">
+                    <label for="" class="block">Select Item Type</label>
+                    <select
+                        name=""
+                        id=""
+                        class="mt-3 text-gray-600 border-gray-300 rounded-md w-1/2"
+                    >
+                        <option value="">Select Item Type</option>
+                    </select>
+                </div>
+                <div class="mt-5">
+                    <div>Status</div>
+                    <input type="checkbox" class="mt-3 rounded-sm" />
+                    <span class="ml-3 mt-10">Publish</span>
+                </div>
+                <div class="mt-5">
+                    <label for="" class="block"
+                        >Item Photo<span style="color: #ff0000">*</span></label
                     >
                     <div class="text-gray-500 mt-2">Recommended Size 400*200</div>
 
@@ -249,14 +268,52 @@ import "@vueup/vue-quill/dist/vue-quill.bubble.css";
                         </label>
                     </div>
                 </div>
-                <div class="mt-5">
-                    <div>Status</div>
-                    <input type="checkbox" class="mt-3 rounded-sm" />
-                    <span class="ml-3 mt-10">Publish</span>
-                </div>
-               
             </div>
-           
+            <div class="w-1/2">
+                <div>Owner Information</div>
+                <div class="mt-5">
+                    <label for="" class="block"
+                        >Owner Name
+                        <span style="color: #ff0000">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        placeholder="Input Owner Name"
+                        class="border-gray-300 rounded-md mt-3 w-1/2"
+                    />
+                </div>
+                 <div class="mt-5">
+                    <label for="" class="block"
+                        >Contact Number
+                        
+                    </label>
+
+                    <select
+                        name=""
+                        id=""
+                        class="mt-3 text-gray-600 border-gray-300 rounded-tl-md rounded-bl-md"
+                    >
+                        <option value="">+95</option>
+                    </select>
+                    <input type="number" class="border-gray-300 rounded-tr-md rounded-br-md w-64" placeholder="Add Number">
+                </div>
+                 <div class="mt-5">
+                    <label for="" class="block"
+                        >Address
+                    </label>
+                    <textarea
+                        type="text"
+                        placeholder="Enter Address"
+                        class="border-gray-300 text-gray-500 text-justify rounded-md mt-3 w-1/2"
+                        rows="3" cols="30"
+                    >
+                    Enter Address
+                    </textarea>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d122168.39268735208!2d96.08214665815852!3d16.887650492824545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1smy!2smm!4v1701791886105!5m2!1smy!2smm" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
         <div class="absolute right-3 mb-10">
             <button class="p-2 px-8 w-30 text-blue-500 border border-gray-500 rounded-md">Cancel</button>

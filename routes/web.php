@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Foundation\Application;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -24,6 +25,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+
 });
 
 Route::middleware([
@@ -35,14 +37,18 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+
     Route::resource('items',ItemController::class);
+    Route::resource('category',CategoryController::class);
+    
 });
-Route::get('/addItems', function (){
-    return Inertia::render(('addItems'));
-});
-Route::get('/category', function (){
-    return Inertia::render(('category'));
-});
-Route::get('/addCategory', function (){
-    return Inertia::render(('addCategory'));
-});
+
+// Route::get('/addItems', function (){
+//     return Inertia::render(('addItems'));
+// });
+// Route::get('/category', function (){
+//     return Inertia::render(('category'));
+// });
+// Route::get('/addCategory', function (){
+//     return Inertia::render(('addCategory'));
+// });
